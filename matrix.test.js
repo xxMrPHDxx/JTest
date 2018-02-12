@@ -24,3 +24,19 @@ test("Matrix.fromArray",(done) => {
 	})
 	done();
 });
+
+// Subtracting two matrices
+test("Subtracting two matrices",(done) => {
+	let m1 = new Matrices(2,2).map((_,i,j) => i * 2 + j + 1);
+	let m2 = new Matrices(2,2).map((_,i,j) => i * 2 + j);
+	let result = Matrix.subtract(m1,m2);
+	expect(result).toEqual({
+		rows: 2,
+		cols: 2,
+		data: [
+			[1,1],
+			[1,1]
+		]
+	});
+	done();
+});
