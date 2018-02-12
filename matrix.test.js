@@ -27,8 +27,8 @@ test("Matrix.fromArray",(done) => {
 
 // Subtracting two matrices
 test("Subtracting two matrices",(done) => {
-	let m1 = new Matrices(2,2).map((_,i,j) => i * 2 + j + 1);
-	let m2 = new Matrices(2,2).map((_,i,j) => i * 2 + j);
+	let m1 = new Matrix(2,2).map((_,i,j) => i * 2 + j + 1);
+	let m2 = new Matrix(2,2).map((_,i,j) => i * 2 + j);
 	let result = Matrix.subtract(m1,m2);
 	expect(result).toEqual({
 		rows: 2,
