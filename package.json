@@ -13,6 +13,7 @@
 	"author": "xxMrPHDxx",
 	"license": "personal",
 	"devDependencies": {
+		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
 		"jest": "^22.1.4"
 	}
 }
