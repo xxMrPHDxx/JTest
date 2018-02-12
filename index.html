@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<script type="text/javascript" src="matrix.js"></script>
+	<script type="text/javascript" src="nn.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		function forEachProp(callback,...objects){
+			for(let i=0;i<objects.length;i++){
+				for(let j=i+1;j<objects.length;j++){
+					for(const prop1 in objects[i]){
+						for(const prop2 in objects[j]){
+							if(prop1 === prop2){
+								if(objects[i][prop1] instanceof Array && objects[j][prop2] instanceof Array){
+									let arr1 = objects[i][prop1];
+									let arr2 = objects[j][prop2];
+									for(let m=0;m<arr1.length;m++){
+										for(let n=m+1;n<arr2.length;n++){
+											forEachProp(callback,arr1[m],arr2[n]);
+										}
+									}
+								}else
+									callback(prop1,objects[i],objects[j]);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		let a = new NeuralNetwork(2,[2,2],1);
+		let b = a.serialize();
+		let c = NeuralNetwork.deserialize(b);
+
+		forEachProp((prop,a,b) => {
+			console.log(prop,a[prop] === b[prop]);
+		},a,c);
+	</script>
+</body>
+</html>

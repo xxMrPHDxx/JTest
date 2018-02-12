@@ -1,0 +1,18 @@
+{
+	"name": "test",
+	"version": "1.0.0",
+	"description": "Testing something",
+	"main": "main.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"keywords": [
+		"testing",
+		"test"
+	],
+	"author": "xxMrPHDxx",
+	"license": "personal",
+	"devDependencies": {
+		"jest": "^22.1.4"
+	}
+}
