@@ -34,6 +34,10 @@
 		let b = a.serialize();
 		let c = NeuralNetwork.deserialize(b);
 
+		let result = new Matrix(2,3).map((_,i,j) => i * 3 + j + 1);
+		let expected = new Matrix(3,2).map((_,i,j) => i + j * 3 + 1);
+		console.log(result.data,expected.data);
+
 		forEachProp((prop,a,b) => {
 			console.log(prop,a[prop] === b[prop]);
 		},a,c);

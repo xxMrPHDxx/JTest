@@ -1,3 +1,8 @@
+try{
+    if(require){
+        global.Matrix = require('./matrix.js');
+    }
+}catch(ex){};
 
 class NeuralNetwork {
     constructor(input_nodes, hidden_nodes, output_nodes) {
@@ -29,16 +34,6 @@ class NeuralNetwork {
 
         // hidden_nodes.length is the last entry at that time
         this.layer.push(new NeuralNetworkLayer(this, this.hidden_nodes[this.hidden_nodes.length-1],this.output_nodes));
-    }
-
-    equals(other){
-        if(this === other) return true;
-        if(other instanceof Matrix){
-            console.log(this.serialize(),other.serialize());
-            return this.serialize() == other.serialize();
-        }else {
-            return false;
-        }
     }
 
     predict(input_array) {
@@ -157,4 +152,8 @@ class NeuralNetworkLayer {
         current_errors = Matrix.multiply(weightsTranspose, current_errors);
         return current_errors;
     }
+}
+
+if (typeof module !== 'undefined') {
+    module.exports = {NeuralNetwork,NeuralNetworkLayer};
 }
